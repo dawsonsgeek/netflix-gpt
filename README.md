@@ -71,9 +71,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 
 
-Created React App
-Configured TailwindCSS
+# Netflx GPT
 
+- Created React App
+- Configured TailwindCSS
+- Header
+- Login Form
 
 # Features 
 - Login/Sign UP
