@@ -76,8 +76,11 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Created React App
 - Configured TailwindCSS
 - Header
+- Routing of App
 - Login Form
 - Sign up Form
+- Form Validation
+- useRef Hook
 
 # Features 
 - Login/Sign UP
@@ -94,3 +97,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
     - Search bar
     - Movie Suggestions
         
+<!-- Formik is a good library for form use in react -->
+<!-- useRef hook -->
+email validation
+<!-- https://saturncloud.io/blog/how-can-i-validate-an-email-address-using-a-regular-expression/#4 -->
+<!-- /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/ -->
+password validation
+<!-- https://regexr.com/3bfsi -->
