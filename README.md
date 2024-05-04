@@ -81,6 +81,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Sign up Form
 - Form Validation
 - useRef Hook
+- firebase set up
+- Deploying app to production
+- Create signUp User Account
 
 # Features 
 - Login/Sign UP
@@ -104,3 +107,13 @@ email validation
 <!-- /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/ -->
 password validation
 <!-- https://regexr.com/3bfsi -->
+Backend Authentication
+<!-- https://firebase.google.com/ -->
+
+npm install firebase
+npm install -g firebase-tools
+npm run build
+firebase login
+firebase init
+firebase deploy
+https://netflixgpt-97d3e.web.app/
