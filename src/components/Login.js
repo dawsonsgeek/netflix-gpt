@@ -1,13 +1,18 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
 // import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice"; 
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const name = useRef(null);
   const email = useRef(null);
@@ -18,29 +23,40 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
-    // Validate the form data
-    // console.log(email.current.value);
-    // console.log(password.current.value);
-    const message = checkValidData(
-      // name.current.value,
-      email.current.value,
-      password.current.value
-    );
-    // console.log(message);
+    const message = checkValidData(email.current.value,password.current.value);
     setErrorMessage(message);
-
     if (message) return;
 
     if (!isSignInForm) {
-      // Sign up login
+      // Sign up 
       createUserWithEmailAndPassword(
         auth, 
         email.current.value, 
-        password.current.value)
+        password.current.value
+      )
         .then((userCredential) => {
-          // Signed up
           const user = userCredential.user;
-          console.log(user);
+          updateProfile(user, {
+            displayName: name.current.value,
+            photoURL: "https://occ-0-386-2430.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTRIX4TzkcCo0x0kZeKp8-E8pte_pi6_bkr_OJur1z9c9q6Ina-LUlxvuwD90D6x9ahjopjPm_zu1a77irxY4MO6Yn-agZzdOgRo.png",
+          })
+          .then(() => {
+            const {uid, email, displayName, photoURL}  = auth.currentUser;
+            dispatch(
+              addUser({
+              uid: user.uid,
+              email: user.email,
+              displayName: user.displayName,
+              photoURL: user.photoURL,
+            })
+          );
+            navigate("/browse");
+          }).catch((error) => {
+            setErrorMessage(error.message);
+            // const errorCode = error.code;
+            // const errorMessage = error.message;
+            // setErrorMessage(errorCode + " - " + errorMessage);
+          });
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -54,6 +70,7 @@ const Login = () => {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user)
+        navigate("/browse");
       })
       .catch((error) => {
         const errorCode = error.code;
