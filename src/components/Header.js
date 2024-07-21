@@ -22,7 +22,7 @@ const Header = () => {
     onAuthStateChanged(auth,(user) => {
       if (user) {
         const {uid, email, displayName, photoURL}  = user;
-        dispatchEvent(
+        dispatch(
           addUser({
             uid: uid,
             email: email,
@@ -32,7 +32,7 @@ const Header = () => {
     );
     navigate("/browse");
       } else {
-        dispatchEvent(removeUser());
+        dispatch(removeUser());
         navigate("/");
       }
     });
@@ -46,7 +46,7 @@ const Header = () => {
    user &&(
     <div className='flex p-2'>
           <img alt="usericon" className='w-12 h-12' src={user?.photoURL} />
-          <button onClick={handleSignOut} className='font-bold text-white'>(Sing Out)</button>
+          <button onClick={handleSignOut} className='font-bold text-white'>(Sign Out)</button>
         </div>
     )}
     </div>
