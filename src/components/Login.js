@@ -6,6 +6,7 @@ import { auth } from "../utils/firebase";
 // import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice"; 
+import { USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -36,16 +37,16 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: "https://occ-0-386-2430.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTRIX4TzkcCo0x0kZeKp8-E8pte_pi6_bkr_OJur1z9c9q6Ina-LUlxvuwD90D6x9ahjopjPm_zu1a77irxY4MO6Yn-agZzdOgRo.png",
+            photoURL: USER_AVATAR,
           })
           .then(() => {
             const {uid, email, displayName, photoURL}  = auth.currentUser;
             dispatch(
               addUser({
-              uid: user.uid,
-              email: user.email,
-              displayName: user.displayName,
-              photoURL: user.photoURL,
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL,
             })
           );
           }).catch((error) => {
