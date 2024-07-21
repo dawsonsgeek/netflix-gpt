@@ -91,6 +91,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Bugfix: Sign up user displayname and profile picture update
 - Bugfix: if the user is not logged int Redirect  /browse to Login Page and vice-versa
 - Unsubscribe from auth state listener
+- Added hardcoded values to the constant file
 
 # Features 
 - Login/Sign UP
@@ -124,3 +125,8 @@ firebase login
 firebase init
 firebase deploy
 https://netflixgpt-97d3e.web.app/
+
+
+[https://developer.themoviedb.org/docs/getting-started](https://developer.themoviedb.org/docs/getting-started)
+
+[https://developer.themoviedb.org/reference/movie-now-playing-list](https://developer.themoviedb.org/reference/movie-now-playing-list)
