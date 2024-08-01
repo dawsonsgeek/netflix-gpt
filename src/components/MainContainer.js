@@ -11,7 +11,7 @@ const MainContainer = () => {
     // console.log(mainMovie);
 
     const { original_title, overview, id } = mainMovie;
-    // console.log(original_title, overview, id);
+    console.log(original_title, overview, id);
 
     return (
         <div>
