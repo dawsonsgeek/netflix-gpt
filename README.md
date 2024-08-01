@@ -102,6 +102,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 - Update Store with Trailer Video Data
 - Embed Trailer Video and make it play in a loop on mute
 - Tailwind CSS to style the player
+- Built SeconndaryComponent 
 
 
 # Features 
